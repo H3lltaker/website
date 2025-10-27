@@ -1,424 +1,415 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <title>Mehul Gupta | Profile</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-        margin: 0;
-        font-family: 'Inter', Arial, sans-serif;
-        background: #f6f8fa;
-        color: #222;
-        }
-        header {
-        position: sticky;
-        top: 0;
-        background: #fff;
-        box-shadow: 0 2px 6px rgba(32,32,32,0.07);
-        padding: 1em 0;
-        z-index: 10;
-        }
-        .nav {
-        max-width: 850px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        }
-        .nav-logo {
-        font-weight: 700;
-        font-size: 1.4em;
-        letter-spacing: 2px;
-        }
-        .nav-links {
-        display: flex;
-        gap: 2em;
-        }
-        .nav-links a {
-        text-decoration: none;
-        color: #222;
-        font-weight: 500;
-        padding: 4px 14px;
-        border-radius: 12px;
-        transition: background 0.18s, color 0.18s;
-        scroll-behavior: smooth;
-        }
-        .nav-links a:hover, .nav-links a.active {
-        background: #e9ecef;
-        color: #555;
-        }
-        .container {
-        max-width: 780px;
-        margin: 2.6em auto;
-        padding: 0 18px;
-        }
-        section {
-        margin-bottom: 2em;
-        padding-top: 50px;
-        scroll-margin-top: 76px;
-        }
-        section h2 {
-        font-size: 1.35em;
-        font-weight: 700;
-        margin-bottom: 1.3em;
-        color: #213E74;
-        letter-spacing: 1px;
-        border-bottom: 1.5px solid #eaeaea;
-        padding-bottom: 0.3em;
-        }
-        .skills-table {
-        margin: 0.8em 0;
-        width: 900px;
-        max-width: 100%;
-        border-collapse: collapse;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 2px 9px rgba(0,0,0,0.08);
-        overflow: hidden;
-        }
-        .skills-table th, .skills-table td {
-        border: 1px solid #e3e3e3;
-        padding: 0.8em;
-        text-align: left;
-        }
-        .skills-table th {
-        background: #f6f8fa;
-        font-weight: 600;
-        }
-        .badges {
-        display: flex;
-        gap: 2em;
-        margin-top: 1em;
-        }
-        .badge {
-        width: 110px;
-        height: 110px;
-        background: #e9ecef;
-        border-radius: 18px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 1.5em;
-        color: #213E74;
-        box-shadow: 0 1px 8px rgba(33,62,116,0.08);
-        }
-        .badge-img {
-        width: 100px;         /* initial size */
-        height: 100px;
-        border-radius: 16px;
-        box-shadow: 0 1px 8px rgba(33,62,116,0.08);
-        transition: transform 0.19s;
-        object-fit: contain;
-        cursor: pointer;
-        }
-        .badge-img:hover {
-        transform: scale(1.12);   /* enlarge on hover */
-        }
-        .carousel {
-        display: flex;
-        align-items: center;
-        gap: 2em;
-        margin-bottom: 1em;
-        }
-        .carousel-box {
-        width: 340px;
-        height: 160px;                 /* Set a fixed height */
-        background: #fff;
-        box-shadow: 0 2px 9px rgba(0,0,0,0.11);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;           /* Vertical centering */
-        justify-content: center;       /* Horizontal centering */
-        font-size: 1.13em;
-        color: #555;
-        margin: 0.6em 0;
-        padding: 0;                    /* Remove variable padding */
-        transition: box-shadow .14s;
-        position: relative;
-        overflow: hidden;
-        text-align: center;            /* Center text as well */
-        }
-
-        }
-        .carousel-controls {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        }
-        .carousel-button {
-        cursor: pointer;
-        font-size: 1.5em;
-        background: #e9ecef;
-        border: none;
-        border-radius: 8px;
-        padding: 6px 10px;
-        color: #213E74;
-        transition: background .13s;
-        }
-        .carousel-button:hover {
-        background: #d4e5ff;
-        }
-        .resume-section {
-        margin: 11px 0;
-        }
-        .upload-btn {
-        padding: 0.85em 1.7em;
-        background: #213E74;
-        color: #fff;
-        border-radius: 8px;
-        border: none;
-        font-size: 1.1em;
-        cursor: pointer;
-        margin-top: 1em;
-        margin-bottom: 0.8em;
-        transition: background .16s;
-        }
-        .upload-btn:hover {
-        background: #0B278E;
-        }
-        .pdf-link {
-        display: inline-block;
-        margin-top: 0.9em;
-        color: #213E74;
-        text-decoration: underline;
-        font-size: 1.05em;
-        margin-bottom: 1em;
-        }
-        .contact-info {
-        margin-bottom: 1em;
-        }
-        .contact-form label {
-        display: block;
-        margin-top: 1em;
-        }
-        .contact-form input, .contact-form textarea {
-        width: 96%;
-        margin-top: 0.4em;
-        padding: 0.7em;
-        border-radius: 6px;
-        border: 1.2px solid #eaeaea;
-        font-size: 1em;
-        background: #f6f8fa;
-        }
-        .contact-form textarea {
-        resize: vertical;
-        min-height: 80px;
-        max-height: 300px;
-        }
-        .contact-form button {
-        margin-top: 1.2em;
-        padding: 0.85em 1.7em;
-        background: #213E74;
-        color: #fff;
-        border-radius: 8px;
-        border: none;
-        font-size: 1.1em;
-        cursor: pointer;
-        transition: background .16s;
-        }
-        .contact-form button:hover {
-        background: #0B278E;
-        }
-        .contact-icons {
-          display: flex;
-          gap: 3em;
-          align-items: center;
-          margin: 1.3em 0 1.8em 0;
-        }
-        .contact-icon-link {
-          display: flex;
-          align-items: center;
-          text-decoration: none;
-          color: #222;
-          font-size: 1.10em;
-          transition: color 0.14s;
-        }
-        .contact-icon-link:hover {
-          color: #3db1c7;
-        }
-        .contact-icon-link svg {
-          width: 28px;
-          height: 28px;
-          margin-right: 0.5em;
-          border-radius: 6px;
-          padding: 3px;
-          box-sizing: content-box;
-        }
-        @media (max-width: 900px) {
-        .container { padding: 0 8px;}
-        .nav { padding: 0 9px;}
-        .button { font-size: 1em;}
-        .carousel-box {font-size: 1em;}
-        .skills-table { width: 96%;}
-        .badges { gap: 1em;}
-        }
-    </style>
-    </head>
-    <body>
-    <header>
-        <div class="nav">
-        <div class="nav-logo">Mehul Gupta</div>
-        <div class="nav-links">
-            <a href="#about-me">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#certifications">Certifications</a>
-            <a href="#hobbies">Hobbies</a>
-            <a href="RESUME" target="_blank">Resume</a>
-            <a href="#contact">Contact</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mehul Gupta | Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<style>
+    body {
+    margin: 0;
+    font-family: 'Inter', Arial, sans-serif;
+    background: #f6f8fa;
+    color: #222;
+    }
+    header {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(32,32,32,0.07);
+    padding: 1em 0;
+    z-index: 10;
+    }
+    .nav {
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+    .nav-logo {
+    font-weight: 700;
+    font-size: 1.4em;
+    letter-spacing: 2px;
+    }
+    .nav-links {
+    display: flex;
+    gap: 2em;
+    }
+    .nav-links a {
+    text-decoration: none;
+    color: #222;
+    font-weight: 500;
+    padding: 4px 14px;
+    border-radius: 12px;
+    transition: background 0.18s, color 0.18s;
+    scroll-behavior: smooth;
+    }
+    .nav-links a:hover, .nav-links a.active {
+    background: #e9ecef;
+    color: #555;
+    }
+    .container {
+    max-width: 780px;
+    margin: 2.6em auto;
+    padding: 0 18px;
+    }
+    section {
+    margin-bottom: 2em;
+    padding-top: 50px;
+    scroll-margin-top: 76px;
+    }
+    section h2 {
+    font-size: 1.35em;
+    font-weight: 700;
+    margin-bottom: 1.3em;
+    color: #213E74;
+    letter-spacing: 1px;
+    border-bottom: 1.5px solid #eaeaea;
+    padding-bottom: 0.3em;
+    }
+    .skills-table {
+    margin: 0.8em 0;
+    width: 900px;
+    max-width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.08);
+    overflow: hidden;
+    }
+    .skills-table th, .skills-table td {
+    border: 1px solid #e3e3e3;
+    padding: 0.8em;
+    text-align: left;
+    }
+    .skills-table th {
+    background: #f6f8fa;
+    font-weight: 600;
+    }
+    .badges {
+    display: flex;
+    gap: 2em;
+    margin-top: 1em;
+    }
+    .badge {
+    width: 110px;
+    height: 110px;
+    background: #e9ecef;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #213E74;
+    box-shadow: 0 1px 8px rgba(33,62,116,0.08);
+    }
+    .badge-img {
+    width: 100px;         /* initial size */
+    height: 100px;
+    border-radius: 16px;
+    box-shadow: 0 1px 8px rgba(33,62,116,0.08);
+    transition: transform 0.19s;
+    object-fit: contain;
+    cursor: pointer;
+    }
+    .badge-img:hover {
+    transform: scale(1.12);   /* enlarge on hover */
+    }
+    .carousel {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 1em;
+    }
+    .carousel-box {
+    width: 340px;
+    height: 160px;                 /* Set a fixed height */
+    background: #fff;
+    box-shadow: 0 2px 9px rgba(0,0,0,0.11);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;           /* Vertical centering */
+    justify-content: center;       /* Horizontal centering */
+    font-size: 1.13em;
+    color: #555;
+    margin: 0.6em 0;
+    padding: 0;                    /* Remove variable padding */
+    transition: box-shadow .14s;
+    position: relative;
+    overflow: hidden;
+    text-align: center;            /* Center text as well */
+    }
+    }
+    .carousel-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    }
+    .carousel-button {
+    cursor: pointer;
+    font-size: 1.5em;
+    background: #e9ecef;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: #213E74;
+    transition: background .13s;
+    }
+    .carousel-button:hover {
+    background: #d4e5ff;
+    }
+    .resume-section {
+    margin: 11px 0;
+    }
+    .upload-btn {
+    padding: 0.85em 1.7em;
+    background: #213E74;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    margin-top: 1em;
+    margin-bottom: 0.8em;
+    transition: background .16s;
+    }
+    .upload-btn:hover {
+    background: #0B278E;
+    }
+    .pdf-link {
+    display: inline-block;
+    margin-top: 0.9em;
+    color: #213E74;
+    text-decoration: underline;
+    font-size: 1.05em;
+    margin-bottom: 1em;
+    }
+    .contact-info {
+    margin-bottom: 1em;
+    }
+    .contact-form label {
+    display: block;
+    margin-top: 1em;
+    }
+    .contact-form input, .contact-form textarea {
+    width: 96%;
+    margin-top: 0.4em;
+    padding: 0.7em;
+    border-radius: 6px;
+    border: 1.2px solid #eaeaea;
+    font-size: 1em;
+    background: #f6f8fa;
+    }
+    .contact-form textarea {
+    resize: vertical;
+    min-height: 80px;
+    max-height: 300px;
+    }
+    .contact-form button {
+    margin-top: 1.2em;
+    padding: 0.85em 1.7em;
+    background: #213E74;
+    color: #fff;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background .16s;
+    }
+    .contact-form button:hover {
+    background: #0B278E;
+    }
+    .contact-icons {
+      display: flex;
+      gap: 3em;
+      align-items: center;
+      margin: 1.3em 0 1.8em 0;
+    }
+    .contact-icon-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #222;
+      font-size: 1.10em;
+      transition: color 0.14s;
+    }
+    .contact-icon-link:hover {
+      color: #3db1c7;
+    }
+    .contact-icon-link svg {
+      width: 28px;
+      height: 28px;
+      margin-right: 0.5em;
+      border-radius: 6px;
+      padding: 3px;
+      box-sizing: content-box;
+    }
+    @media (max-width: 900px) {
+    .container { padding: 0 8px;}
+    .nav { padding: 0 9px;}
+    .button { font-size: 1em;}
+    .carousel-box {font-size: 1em;}
+    .skills-table { width: 96%;}
+    .badges { gap: 1em;}
+    }
+</style>
+</head>
+<body>
+<header>
+    <div class="nav">
+    <div class="nav-logo">Mehul Gupta</div>
+    <div class="nav-links">
+        <a href="#about-me">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#hobbies">Hobbies</a>
+        <a href="RESUME" target="_blank">Resume</a>
+        <a href="#contact">Contact</a>
+    </div>
+    </div>
+</header>
+<main class="container">
+    <section id="about-me">
+    <h2>About</h2>
+    <p>Hi!</p>
+    <p>I am Mehul, a student pursuing a career in the field of CyberSecurity. In the past few years, I have amassed various skills in the domain of Computer Networking and Security , which enables me to provide insight into current Security Architecture while offering improvements for businesses.</p>
+    <p>I am inquisitive, and always strive to learn more. Currently working towards obtaining certifications, I am well versed in Linux, Networking, and Security concepts , along with a strong grasp of the bash and python scripting languages . Additionally, I am fluent in English and Hindi, with the ability to verbally communicate in Japanese as well.</p>
+    </section>
+    <section id="skills">
+    <h2>Skills</h2>
+    <table class="skills-table">
+        <thead>
+        <tr><th>Domain</th><th>Skills</th></tr>
+        </thead>
+        <tbody>
+        <tr><td>Networking</td><td>Cisco IOS, Subnetting, GNS3, Cisco Packet Tracer, Wireshark</td></tr>
+        <tr><td>Cybersecurity</td><td>Kali Linux, BURP suite, OSINT, nmap, penetration testing</td></tr>
+        <tr><td>Languages</td><td>Python, Bash, Cisco IOS, C++, C, Java, SQL</td></tr>
+        <tr><td>Automation</td><td>Kubernetes, Ansible, n8n</td></tr>
+        <tr><td>Virtualization</td><td>VMware, Oracle VirtualBox, Docker, Podman, KVM</td></tr>
+        <tr><td>Cloud Computing</td><td>Amazon Web Services, Linode (Akamai Cloud)</td></tr>
+        </tbody>
+    </table>
+    </section>
+    <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="badges">
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="96bfe70f-8e1c-44f0-a70c-3170f50ea33d" data-share-badge-host="https://www.credly.com"></div>
+        <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="16a33dd7-0fdb-4341-9cf9-2a17abe6cf7a" data-share-badge-host="https://www.credly.com"></div>
+    </div>
+    <!--<div style="margin-top:1em;">Content goes here.</div>-->
+    </section>
+    <section id="hobbies">
+    <h2>Hobbies</h2>
+    <div class="carousel">
+        <button class="carousel-button" onclick="showCarousel(-1)">&#8592;</button>
+        <a
+        id="carousel-link"
+        href="#Hobbies"
+        target="_blank"
+        style="display:block; text-decoration:none;">
+        <div
+            id="carousel-content"
+            class="carousel-box"
+            style="
+            background-image: url('./IMG_0508.jpg');
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 4px 18px rgba(33,62,116,0.13);
+            transition: box-shadow .18s, filter .2s;
+            position: relative;
+            "
+            onmouseover="this.style.boxShadow='0 8px 24px rgba(33,62,116,0.30)';
+                        this.style.filter='brightness(0.87)';"
+            onmouseout="this.style.boxShadow='0 4px 18px rgba(33,62,116,0.13)';
+                        this.style.filter='brightness(1)';">
+            <span style="
+            background: rgba(17,17,17,0.57);
+            color: #fff;
+            padding: 0.8em 1.1em;
+            border-radius: 8px;
+            font-size: 1.16em;
+            position: relative;
+            z-index: 2;"
+            id="carousel-text">
+            Music
+            </span>
         </div>
-        </div>
-    </header>
-    <main class="container">
-        <section id="about-me">
-        <h2>About</h2>
-        <p>Hi!</p>
-        <p>I am Mehul, a student pursuing a career in the field of CyberSecurity. In the past few years, I have amassed various skills in the domain of Computer Networking and Security , which enables me to provide insight into current Security Architecture while offering improvements for businesses.</p>
-        <p>I am inquisitive, and always strive to learn more. Currently working towards obtaining certifications, I am well versed in Linux, Networking, and Security concepts , along with a strong grasp of the bash and python scripting languages . Additionally, I am fluent in English and Hindi, with the ability to verbally communicate in Japanese as well.</p>
-        </section>
-        <section id="skills">
-        <h2>Skills</h2>
-        <table class="skills-table">
-            <thead>
-            <tr><th>Domain</th><th>Skills</th></tr>
-            </thead>
-            <tbody>
-            <tr><td>Networking</td><td>Cisco IOS, Subnetting, GNS3, Cisco Packet Tracer, Wireshark</td></tr>
-            <tr><td>Cybersecurity</td><td>Kali Linux, BURP suite, OSINT, nmap, penetration testing</td></tr>
-            <tr><td>Languages</td><td>Python, Bash, Cisco IOS, C++, C, Java, SQL</td></tr>
-            <tr><td>Automation</td><td>Kubernetes, Ansible, n8n</td></tr>
-            <tr><td>Virtualization</td><td>VMware, Oracle VirtualBox, Docker, Podman, KVM</td></tr>
-            <tr><td>Cloud Computing</td><td>Amazon Web Services, Linode (Akamai Cloud)</td></tr>
-            </tbody>
-        </table>
-        </section>
-
-        <section id="certifications">
-        <h2>Certifications</h2>
-        <div class="badges">
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="96bfe70f-8e1c-44f0-a70c-3170f50ea33d" data-share-badge-host="https://www.credly.com"></div>
-            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="16a33dd7-0fdb-4341-9cf9-2a17abe6cf7a" data-share-badge-host="https://www.credly.com"></div>
-        </div>
-        <!--<div style="margin-top:1em;">Content goes here.</div>-->
-        </section>
-
-
-        <section id="hobbies">
-        <h2>Hobbies</h2>
-        <div class="carousel">
-            <button class="carousel-button" onclick="showCarousel(-1)">&#8592;</button>
-            <a
-            id="carousel-link"
-            href="WEBPAGE_PATH_HERE"
-            target="_blank"
-            style="display:block; text-decoration:none;">
-            <div
-                id="carousel-content"
-                class="carousel-box"
-                style="
-                background-image: url('BACKGROUND_IMAGE_PATH_HERE');
-                background-size: cover;
-                background-position: center;
-                box-shadow: 0 4px 18px rgba(33,62,116,0.13);
-                transition: box-shadow .18s, filter .2s;
-                position: relative;
-                "
-                onmouseover="this.style.boxShadow='0 8px 24px rgba(33,62,116,0.30)';
-                            this.style.filter='brightness(0.87)';"
-                onmouseout="this.style.boxShadow='0 4px 18px rgba(33,62,116,0.13)';
-                            this.style.filter='brightness(1)';"
-            >
-                <span style="
-                background: rgba(17,17,17,0.57);
-                color: #fff;
-                padding: 0.8em 1.1em;
-                border-radius: 8px;
-                font-size: 1.16em;
-                position: relative;
-                z-index: 2;
-                " id="carousel-text">
-                Music
-                </span>
-            </div>
-            </a>
-            <button class="carousel-button" onclick="showCarousel(1)">&#8594;</button>
-        </div>
-        </section>
-
-        <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-icons">
-          <a class="contact-icon-link" href="mailto:mehulg1303@gmail.com" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 8L8.44992 11.6333C9.73295 12.4886 10.3745 12.9163 11.0678 13.0825C11.6806 13.2293 12.3194 13.2293 12.9322 13.0825C13.6255 12.9163 14.2671 12.4886 15.5501 11.6333L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z" stroke="#213E74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
-          </svg>
-            mehulg1303@gmail.com
-          </a>
-          <a class="contact-icon-link" href="https://www.linkedin.com/in/mehulg1303" target="_blank">
-          <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-              viewBox="0 0 382 382" xml:space="preserve">
-          <path style="fill:#213E74;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889
-              C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056
-              H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806
-              c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1
-              s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73
-              c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079
-              c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426
-              c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472
-              L341.91,330.654L341.91,330.654z"/>
-          </svg>
-            linkedin.com/in/mehulg1303
-          </a>
-        </div>
-
-        <form class="contact-form" action="https://formspree.io/f/mdkpknag" method="POST">
-          <label>Name</label>
-          <input type="text" name="name" required>
-          <label>Email</label>
-          <input type="email" name="email" required>
-          <label>Message</label>
-          <textarea name="message" required></textarea>
-          <button type="submit">Reach Out</button>
-        </form>
-
-        </section>
-    </main>
-    <script>
-        // Nav bar highlight on click
-        document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function(){
-            document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-        });
-        });
-        // Hobbies carousel
-        const hobbies = [
-        {
-        text: "Music",
-        background: "./IMG_0508.jpg"
-        link: "#Hobbies"
-        },
-        
-        {
-        text: "Photography",
-        background: "BACKGROUND_IMAGE_PATH_HERE",
-        link: "#Hobbies"
-        }
-        ];
-        let hobbyIndex = 0;
-        function showCarousel(change) {
-        hobbyIndex = (hobbyIndex + change + hobbies.length) % hobbies.length;
-        document.getElementById('carousel-content').style.backgroundImage = `url('${hobbies[hobbyIndex].background}')`;
-        document.getElementById('carousel-link').href = hobbies[hobbyIndex].link;
-        document.getElementById('carousel-text').textContent = hobbies[hobbyIndex].text;
-        }
-        // Prevent actual form submission for contact
-        document.querySelector('.contact-form').onsubmit = e => {
-        e.preventDefault();
-        alert('Contact form submitted!');
-        };
-    </script>
-    <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-    </body>
-    </html>
+        </a>
+        <button class="carousel-button" onclick="showCarousel(1)">&#8594;</button>
+    </div>
+    </section>
+    <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-icons">
+      <a class="contact-icon-link" href="mailto:mehulg1303@gmail.com" target="_blank">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M3 8L8.44992 11.6333C9.73295 12.4886 10.3745 12.9163 11.0678 13.0825C11.6806 13.2293 12.3194 13.2293 12.9322 13.0825C13.6255 12.9163 14.2671 12.4886 15.5501 11.6333L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z" stroke="#213E74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+      </svg>
+        mehulg1303@gmail.com
+      </a>
+      <a class="contact-icon-link" href="https://www.linkedin.com/in/mehulg1303" target="_blank">
+      <svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 382 382" xml:space="preserve">
+      <path style="fill:#213E74;" d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889
+          C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056
+          H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806
+          c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1
+          s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73
+          c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079
+          c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426
+          c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472
+          L341.91,330.654L341.91,330.654z"/>
+      </svg>
+        linkedin.com/in/mehulg1303
+      </a>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/mdkpknag" method="POST">
+      <label>Name</label>
+      <input type="text" name="name" required>
+      <label>Email</label>
+      <input type="email" name="email" required>
+      <label>Message</label>
+      <textarea name="message" required></textarea>
+      <button type="submit">Reach Out</button>
+    </form>
+    </section>
+</main>
+<script>
+    // Nav bar highlight on click
+    document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function(){
+        document.querySelectorAll('.nav-links a').forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+    });
+    });
+    // Hobbies carousel
+    const hobbies = [
+    {
+    text: "Music",
+    background: "./IMG_0508.jpg",
+    link: "#Hobbies"
+    },
+    {
+    text: "Photography",
+    background: "BACKGROUND_IMAGE_PATH_HERE",
+    link: "#Hobbies"
+    }
+    ];
+    let hobbyIndex = 0;
+    function showCarousel(change) {
+    hobbyIndex = (hobbyIndex + change + hobbies.length) % hobbies.length;
+    document.getElementById('carousel-content').style.backgroundImage = `url('${hobbies[hobbyIndex].background}')`;
+    document.getElementById('carousel-link').href = hobbies[hobbyIndex].link;
+    document.getElementById('carousel-text').textContent = hobbies[hobbyIndex].text;
+    }
+    // Prevent actual form submission for contact
+    document.querySelector('.contact-form').onsubmit = e => {
+    e.preventDefault();
+    alert('Contact form submitted!');
+    };
+</script>
+<script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+</body>
+</html>
