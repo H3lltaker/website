@@ -276,7 +276,20 @@
       box-sizing: border-box;
       font-size: 0.93em;
     }
-    .badges { flex-direction: column; gap: 0.5em; }
+    .badges {
+    display: flex;
+    flex-wrap: wrap;        /* allow side-by-side if there's space */
+    justify-content: center;
+    gap: 1em;
+    row-gap: 2em;           /* more vertical spacing */
+    width: 100%;
+    }
+    .badges > div {
+    flex: 1 1 150px;        /* let each badge grow/shrink, minimum width */
+    max-width: 180px;
+    min-width: 130px;
+    margin: 0 auto;
+    }
     .contact-icons { flex-direction: column; gap: 0.7em; }
     .nav-links {
       display: none;
