@@ -82,6 +82,8 @@
     border: 1px solid #e3e3e3;
     padding: 0.8em;
     text-align: left;
+    word-break: break-word;
+    white-space: normal;
     }
     .skills-table th {
     background: #f6f8fa;
@@ -336,6 +338,24 @@
       flex-shrink: 0;
       flex-grow: 0;
     }
+      .skills-table {
+    table-layout: fixed;
+    word-break: break-word;
+  }
+  .skills-table th:first-child,
+  .skills-table td:first-child {
+    width: 85px;           /* or another small/fixed value you prefer */
+    min-width: 60px;
+    max-width: 120px;
+    white-space: normal;
+    /* Allow shrinking and wrapping */
+  }
+  .skills-table th:last-child,
+  .skills-table td:last-child {
+    width: auto;
+    min-width: 120px;
+    /* Flexible grow for mobile */
+  }
   }
 </style>
 </head>
