@@ -245,6 +245,22 @@
       border-radius: 6px;
       padding: 3px;
       box-sizing: content-box;
+    }    
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background: #213E74;
+      border-radius: 3px;
+      transition: all 0.25s;
     }
     @media (max-width: 900px) {
     .container { padding: 0 8px;}
@@ -253,14 +269,39 @@
     .carousel-box {font-size: 1em;}
     .skills-table { width: 96%;}
     .badges { gap: 1em;}
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 62px;
+      left: 0;
+      width: 100%;
+      background: #fff;
+      z-index: 99;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
     }
+    .nav-links.show {
+      display: flex;
+    }
+    .hamburger {
+      display: flex;
+    }
+    .nav {
+      position: relative;
+    }
+  }
 </style>
 </head>
 <body>
 <header>
     <div class="nav">
     <div class="nav-logo">Mehul Gupta</div>
-    <div class="nav-links">
+    <button class="hamburger" aria-label="Open menu" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <div class="nav-links" id="mainNav">
         <a href="#about-me">About</a>
         <a href="#skills">Skills</a>
         <a href="#certifications">Certifications</a>
@@ -395,6 +436,10 @@
         this.classList.add('active');
     });
     });
+    function toggleMenu() {
+      const nav = document.getElementById('mainNav');
+      nav.classList.toggle('show');
+    }
     // Hobbies carousel
     const hobbies = [
     {
