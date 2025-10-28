@@ -532,6 +532,12 @@
     e.preventDefault();
     alert('Contact form submitted!');
     };
+    document.querySelectorAll('#mainNav a').forEach(link => {
+    link.addEventListener('click', function() {
+    const nav = document.getElementById('mainNav');
+    nav.classList.remove('show');
+    });
+    });
 </script>
 <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
 </body>
