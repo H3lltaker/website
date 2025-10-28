@@ -122,6 +122,9 @@
     align-items: center;
     gap: 2em;
     margin-bottom: 1em;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
     }
     .carousel-box {
     width: 340px;
@@ -266,9 +269,15 @@
     .container { padding: 0 8px;}
     .nav { padding: 0 9px;}
     .button { font-size: 1em;}
-    .carousel-box {font-size: 1em;}
     .skills-table { width: 96%;}
-    .badges { gap: 1em;}
+    .container, .badges, .skills-table, .skills-table th, .skills-table td {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      font-size: 0.93em;
+    }
+    .badges { flex-direction: column; gap: 0.5em; }
+    .contact-icons { flex-direction: column; gap: 0.7em; }
     .nav-links {
       display: none;
       flex-direction: column;
@@ -288,6 +297,31 @@
     }
     .nav {
       position: relative;
+    }
+    .carousel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      max-width: 100vw;
+      box-sizing: border-box;
+      padding: 0 2vw; /* Add horizontal padding to avoid touching screen edges */
+      gap: 0.5em;     /* Optional: smaller gap between box and buttons */
+      overflow: hidden;
+    }
+    .carousel-box {
+      flex: 1 1 auto;              /* Flexible sizing */
+      min-width: 0;
+      max-width: 76vw;             /* Leaves room for buttons */
+      width: 76vw;                 /* Empirically keeps box + buttons within 100vw */
+      height: 100px;               /* Or variable if desired */
+      margin: 0;
+    }
+    .carousel-button {
+      font-size: 1em;
+      padding: 6px 10px;
+      flex-shrink: 0;
+      flex-grow: 0;
     }
   }
 </style>
