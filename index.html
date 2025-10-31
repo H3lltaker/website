@@ -232,7 +232,12 @@
       align-items: center;
       margin: 1.3em 0 1.8em 0;
     }
-    .contact-icon-link {
+    .contact-icon-link {    // Prevent actual form submission for contact
+    document.querySelector('.contact-form').onsubmit = e => {
+    e.preventDefault();
+    alert('Contact form submitted!');
+    };
+
       display: flex;
       align-items: center;
       text-decoration: none;
@@ -527,11 +532,6 @@
     document.getElementById('carousel-link').href = hobbies[hobbyIndex].link;
     document.getElementById('carousel-text').textContent = hobbies[hobbyIndex].text;
     }
-    // Prevent actual form submission for contact
-    document.querySelector('.contact-form').onsubmit = e => {
-    e.preventDefault();
-    alert('Contact form submitted!');
-    };
     document.querySelectorAll('#mainNav a').forEach(link => {
     link.addEventListener('click', function() {
     const nav = document.getElementById('mainNav');
